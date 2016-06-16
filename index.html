@@ -33,14 +33,14 @@
       </div>
     </nav>
       <div class="jumbotron">
-        <img src="logo.png" alt="img" class="brand center-block">
+        <img src="assets/images/logo.png" alt="img" class="brand center-block">
       </div>
       <div class="row">
         <div class="col-md-6"> 
           <div class="panel panel-default">
             <div class="panel-body">
               <form>
-                <div class="form-group">
+                <div class="form-group sh-iconset sh-iconset-search search-action-button">
                   <label for="exampleInputEmail1">Start Your Event Search Here!</label>
                   <input type="text" class="form-control" id="eventInput" placeholder="Enter event name">
                   <br/>
@@ -58,18 +58,6 @@
         </div>
       </div>
     </div>
-
-  <script>
-    function initialize() {
-      var mapProp = {
-        center: new google.maps.LatLng(51.508742,-0.120850),
-        zoom:15,
-        mapTypeId:google.maps.MapTypeId.ROADMAP
-      };
-      var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
-    }
-    google.maps.event.addDomListener(window, 'load', initialize
-    );
-  </script>
+    <script type="text/javascript" src="assets/javascript/script.js"></script>
   </body>
 </html>
