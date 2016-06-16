@@ -1,4 +1,5 @@
-function initialize() {
+$(document).on('ready', function{
+    function initialize() {
       var mapProp = {
         center: new google.maps.LatLng(40.69847032728747, -73.9514422416687),
         zoom:10,
@@ -50,3 +51,7 @@ function initialize() {
     // }
     //  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDOQMDnJhK0du419usTwHx0OvngOQ9qPzA&callback=initMap"
     // async defer></script> 
+
+
+
+})
