@@ -1,3 +1,5 @@
+
+
 var parkingWhizUrl = "";
 
 
@@ -24,43 +26,33 @@ var parkingWhizUrl = "";
         /* place.geometry.location.lat() && place.geometry.location.lat() ****/
         /* will be used for current address latitude and longitude************/
         /*********************************************************************/
-       
-       document.getElementById('lat').innerHTML = place.geometry.location.lat();
-        document.getElementById('long').innerHTML = place.geometry.location.lng();
-        parkingWhizUrl= "http://api.parkwhiz.com/venue/search/?lat="+ $("#lat").text()
-        + "&lng=" +$("#lat").text() + "&key=7e1b913bf5063585f1bd14b74d2b383b";
-        console.log("gggg");
-        // console.log(lng);
-        console.log(parkingWhizUrl);
+        document.getElementById('lat').innerHTML = place.geometry.location.lat();
+        document.getElementById('lng').innerHTML = place.geometry.location.lng();
+        // parkingWhizUrl= "http://api.parkwhiz.com/venue/search/?lat="+ $("#lat").text()
+        // + "&lng=" +$("#lat").text() + "&key=7e1b913bf5063585f1bd14b74d2b383b";
+        // console.log("gggg");
+        // // console.log(lng);
+        // console.log(parkingWhizUrl);
         });
 
   }
 
-   //google.maps.event.addDomListener(window, 'load', initialize);
-   
-
+   google.maps.event.addDomListener(window, 'load', initialize);
+$(document).ready(function() {
 
    $('#submit').on('click', function() {
-    //debugger
+    // debugger
         var location = $('#pac-input').val().trim();
-        console.log(location);     
-
-/* address,city,distance,name,state,zip*/
-
-
-
+        console.log(location);        
         /*var queryURL = "http://api.parkwhiz.com/venue/search/?lat=42.082089&lng=-71.2796045&key=";
         var apiKey = "7e1b913bf5063585f1bd14b74d2b383b";*/
-        //var queryURL="https://crossorigin.me/http://api.parkwhiz.com/venue/search/?lat=42.082089&lng=-71.2796045&key=7e1b913bf5063585f1bd14b74d2b383b"
-
-        var queryURL = "https://crossorigin.me/https://maps.googleapis.com/maps/api/place/nearbysearch/json?location="+$("#lat").val()+","+("#lng").val()+"&radius=500&type=restaurant&key=AIzaSyDOQMDnJhK0du419usTwHx0OvngOQ9qPzA";
-
-
-       //var queryURL = 'https://crossorigin.me/http://api.parkwhiz.com/venue/search/?name=' + location +'&key=7e1b913bf5063585f1bd14b74d2b383b';
+        console.log($("#lat").text(), $("#lng").text());
+        var queryURL="https://crossorigin.me/https://maps.googleapis.com/maps/api/place/nearbysearch/json?location="+$("#lat").text()+","+$("#lng").text()+"&radius=500&type=restaurant&key=AIzaSyDOQMDnJhK0du419usTwHx0OvngOQ9qPzA";
         console.log(queryURL);
+       // var queryURL = "http://api.giphy.com/v1/gifs/search?q=dogs&api_key=dc6zaTOxFJmzC&limit=10" //+ animal + "&api_key=dc6zaTOxFJmzC&limit=10";
         $.ajax({
                 //url: parkingWhizUrl,
-                url: queryURL,//queryURL, //+ apiKey,
+                url: queryURL, //+ apiKey,
                 method: 'GET'
             })
             .done(function(response) {
@@ -69,14 +61,8 @@ var parkingWhizUrl = "";
                 //console.log(response);
                 // step 2: since the image information is inside of the data key then make a variable named results and set it equal to response.data
                 //------------put step 2 in between these dashes--------------------
-                // var resAddress = response[0].address;
-                // var resCity = response[0].city;
-                // var resDistance = response[0].distance;
-                // var resName = response[0].name;
-                // var resState = response[0].state;
-                // var resZip = response[0].zip;
-                
-                //  console.log(resAddress + resCity+ resDistance +resName+resState +resZip);
+                var results = response.data;
+                console.log(results);
                 //console.log('results', results);
                 //----------------- ---------------
                /* for (var i = 0; i < results.length; i++) {                   
@@ -90,10 +76,8 @@ var parkingWhizUrl = "";
                     animalDiv.append(animalImage);
                     $('#gifsAppearHere').append(animalDiv);
                 }*/
-                
             });
             return false;
-            
 
     });
-   initialize();
+   });
