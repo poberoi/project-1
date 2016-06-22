@@ -7,7 +7,7 @@ $(document).ready(function(){
       console.log(p);
     
     
-    var queryURL = 'https://crossorigin.me/http://api.eventful.com/json/events/search?app_key=P69H26fPKMJfCRcm&q=music&l=' + p + '&within=10&units=miles';
+    var queryURL = 'https://crossorigin.me/http://api.eventful.com/json/events/search?app_key=P69H26fPKMJfCRcm&q=music&l=' + p + '&within=10&units=miles&t=this+weekend';
 
     console.log(queryURL);
 
@@ -25,14 +25,15 @@ $(document).ready(function(){
       var event = response.events.event;
       console.log(eventLength);
       for (i=0; i<eventLength; i++){
-        var infoDiv = $('<button>').attr('class', 'col-md-4');
+        var infoDiv = $('<button>').attr('class', 'col-md-6');
         var eventTitle = event[i].title;
         console.log(eventTitle);
         var eventCity = event[i].city_name;
         console.log(eventCity);
-        infoDiv.append(eventCity);
+        var eventRegion = event[i].region_abbr;
+        infoDiv.append('Location: ', eventCity,', ', eventRegion);
         infoDiv.append('<br/>');
-        infoDiv.append(eventTitle);
+        infoDiv.append('Event: ', eventTitle);
         infoDiv.attr('data-lat', event[i].latitude);
         infoDiv.attr('data-lng', event[i].longitude);
         console.log(infoDiv.data('lat'));
