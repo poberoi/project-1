@@ -43,13 +43,17 @@
               <form>
                 <div class="form-group sh-iconset sh-iconset-search search-action-button">
                   <label for="exampleInputEmail1">Start Your Event Search Here!</label>
-                  <input type="text" class="form-control" id="eventInput" placeholder="Enter event name">
+                  <input type="text" class="form-control" id="eventName" placeholder="Enter event name">
                   <br/>
                   <label for="exampleInputEmail1">Start Your Event Search Here!</label>
                   <input type="text" class="form-control" id="location" placeholder="Enter location">
                 </div>
-                <button type="submit" class="btn btn-default">Submit</button>
+                <button type="submit" id="btnSearch" class="btn btn-default">Submit</button>
               </form>
+            </div>
+          </div>
+          <div class="panel hidden" id="resultsWrapper">
+            <div class="panel-body" id="results">
             </div>
           </div>
         </div>
