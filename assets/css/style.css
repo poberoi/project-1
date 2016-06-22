@@ -34,3 +34,7 @@ body{
   border-style:ridge;
 }
 
+.event-details {
+  border-bottom: 1px solid #eee;
+  padding: 3px;
+}
