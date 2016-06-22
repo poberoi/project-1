@@ -1,6 +1,5 @@
 $(document).ready(function(){
 
-var click = function() {
     $('#submit').on('click', function(){
       console.log("it clicked");
       $('#eventsDisplay').empty();
@@ -22,32 +21,28 @@ var click = function() {
     .done(function(response) {
       console.log('done');
       console.log(response);
-    //   // var results = response.data;
-    //   // for (i=0; i<results.length; i++){
-    //   //   var gifDiv = $('<span class="items">').attr('class', 'col-md-4');
-    //   //   var rating = results[i].rating;
-    //   //   var p = $('<p>').text('Rating: ' + rating);
-    //   //   var personImage = $('<img>');
-    //   //   personImage.attr('src', results[i].images.original_still.url);
-    //   //   personImage.attr('width', 200);
-    //   //   personImage.attr('data-still', results[i].images.original_still.url);
-    //   //   personImage.attr('data-animate', results[i].images.fixed_height.url);
-    //   //   personImage.attr('data-state', 'still');
-    //   //   console.log(personImage);
-    //   //   gifDiv.append(p)
-    //   //   gifDiv.append(personImage)
-    //   //   $('#eventsDisplay').append(gifDiv);
-    //   // }
-      
-    // });
+      var eventLength = response.events.event.length;
+      var event = response.events.event;
+      console.log(eventLength);
+      for (i=0; i<eventLength; i++){
+        var infoDiv = $('<button>').attr('class', 'col-md-4');
+        var eventTitle = event[i].title;
+        console.log(eventTitle);
+        var eventCity = event[i].city_name;
+        console.log(eventCity);
+        infoDiv.append(eventCity);
+        infoDiv.append('<br/>');
+        infoDiv.append(eventTitle);
+        infoDiv.attr('data-lat', event[i].latitude);
+        infoDiv.attr('data-lng', event[i].longitude);
+        console.log(infoDiv.data('lat'));
+        console.log(infoDiv.data('lng'));
+        $('#eventsDisplay').append(infoDiv);
+      }
       
     }).error(function(data) {
       console.log('in error', data);
     });
     return false;
   });
-  };
-
-
-click();
-})
+});
