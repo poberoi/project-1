@@ -36,8 +36,7 @@ $(document).ready(function(){
 
   $('#submit').on('click', function(){
     $('#eventsDisplay').empty();
-    console.log("it clicked");
-    $('#eventsDisplay').empty();
+    $('#eventsHeading').empty();
     var p= $('#zipCode').val();
     console.log(p);
   
