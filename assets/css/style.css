@@ -30,7 +30,7 @@ body{
   border-style:ridge;*/
   height: 568px;
   width: 568px;
-  padding: 0px 0px;
+  padding: 50px 0px;
   overflow: auto;
   
 
@@ -59,9 +59,10 @@ body{
   background-color: white;
   color: black;
 }
-#welcome{
+#welcome, #eventsHeading{
   text-align: center;
 }
+
 
 footer{
   font-family: "Times New Roman", times, serif;

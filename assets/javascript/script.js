@@ -59,8 +59,12 @@ $(document).ready(function(){
       var eventLength = response.events.event.length;
       var event = response.events.event;
       console.log(eventLength);
+      var instruc = $('<div>');
+      instruc.append('<h4>Click on Events below to see location</h4>');
+      $('#eventsHeading').append(instruc);
       for (i=0; i<eventLength; i++){
         var infoDiv = $('<div>').attr('class','eventButtons col-md-3');
+
         var heading = "Event " + (i+1);
         var eventTitle = event[i].title;
         console.log(eventTitle);
