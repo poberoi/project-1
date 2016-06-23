@@ -26,12 +26,13 @@ body{
   width: 400px;
 }
 #googleMap{
-  /*margin: 0 auto;*/
   border-width:5px; 
   border-style:ridge;
   height: 400px;
   width: 400px;
+  padding: 0px 0px;
   overflow: auto;
+  
 
 }
 .panel{
@@ -55,7 +56,5 @@ body{
   width: 250px;
 }
 
-#eventDescription {
-  color: red;
-}
+
 
