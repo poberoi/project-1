@@ -41,6 +41,7 @@ body{
   padding: 3px;
 }
 
+
 .btn-info {
   margin: 5px;
 }
@@ -54,6 +55,10 @@ body{
   width: 265px;
   background-color: white;
   color: black;
+}
+
+.eventButtons:hover{
+  background-color: lightblue;
 }
 #welcome, #eventsHeading{
   text-align: center;
@@ -69,6 +74,12 @@ footer{
   font-size: 12px;
   text-align: center;
 }
+
+a:hover{
+  color: red;
+  text-decoration: none;
+}
+
 
 
 
