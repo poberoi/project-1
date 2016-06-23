@@ -28,8 +28,8 @@ body{
 #googleMap{
   border-width:5px; 
   border-style:ridge;
-  height: 400px;
-  width: 400px;
+  height: 568px;
+  width: 568px;
   padding: 0px 0px;
   overflow: auto;
   
@@ -54,6 +54,15 @@ body{
   color: white;
   height: 125px;
   width: 250px;
+  background-color: white;
+  color: black;
+}
+
+footer{
+  font-family: "Times New Roman", times, serif;
+  padding: 30px 0;
+  font-size: 12px;
+  text-align: center;
 }
 
 

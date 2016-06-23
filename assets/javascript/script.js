@@ -60,18 +60,27 @@ $(document).ready(function(){
       var event = response.events.event;
       console.log(eventLength);
       for (i=0; i<eventLength; i++){
-        var infoDiv = $('<button>').attr('class','eventButtons btn-primary col-md-3');
+        var infoDiv = $('<div>').attr('class','eventButtons col-md-3');
         var eventTitle = event[i].title;
         console.log(eventTitle);
         var eventCity = event[i].city_name;
         console.log(eventCity);
         var eventRegion = event[i].region_abbr;
+        console.log(eventRegion);
         var eventVenue = event[i].venue_name;
+        console.log(eventVenue);
         var venueAddress = event[i].venue_address;
+        console.log(venueAddress);
+        var eventUrl = event[i].url
+        console.log(eventUrl);
+        var url = $('<a>').attr('href',eventUrl);
+        url.attr('target', "_blank");
+        url.append('Event Link');
         infoDiv.append('Location: ', eventCity,', ', eventRegion, '<br/>');
         infoDiv.append('Event: ', eventTitle, '<br/>');
         infoDiv.append('Venue: ', eventVenue, '<br/>');
-        infoDiv.append('Venue Address: ', venueAddress)
+        infoDiv.append('Venue Address: ', venueAddress, '<br/>');
+        infoDiv.append('Event info: ', url);
         infoDiv.attr('data-desc', event[i].description);
         infoDiv.attr('data-lat', event[i].latitude);
         infoDiv.attr('data-lng', event[i].longitude);
