@@ -26,8 +26,8 @@ body{
   width: 400px;
 }
 #googleMap{
-  border-width:5px; 
-  border-style:ridge;
+  /*border-width:5px; 
+  border-style:ridge;*/
   height: 568px;
   width: 568px;
   padding: 0px 0px;
@@ -49,13 +49,18 @@ body{
   margin: 5px;
 }
 .eventButtons{
+  margin: 5px;
+  padding: 5px;
   text-align: center;
   font-size: 12px;
   color: white;
-  height: 125px;
+  height: 150px;
   width: 250px;
   background-color: white;
   color: black;
+}
+#welcome{
+  text-align: center;
 }
 
 footer{

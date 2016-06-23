@@ -18,19 +18,17 @@
     <div class="container">
       <nav class="navbar navbar-default">
           
-          <div class="navbar-header">
-            <a class="navbar-brand" href="index.html">Home</a>
-            
+        <div class="navbar-header">
+          <a class="navbar-brand" href="index.html">Home</a>
+          
+        </div>
+        <form class="navbar-form navbar-right" role="search">
+          <div class="form-group">
+             <label for="addActor">Enter zip code to search music events nearby</label>
+            <input type="text" class="form-control" id="zipCode" placeholder="Enter Zip Code Here">
           </div>
-          <div></div>
-          <div></div>
-          <form class="navbar-form navbar-left" role="search">
-            <div class="form-group">
-               <label for="addActor">Enter zip code to search music events nearby</label>
-              <input type="text" class="form-control" id="zipCode" placeholder="Enter Zip Code Here">
-            </div>
-            <button type="submit" class="btn btn-primary" id="submit">Submit</button>
-          </form>
+          <button type="submit" class="btn btn-primary" id="submit">Submit</button>
+        </form>
       </nav>
 
       <!-- <div class="panel panel-primary">
@@ -45,6 +43,13 @@
         </div>
       </div> -->
       <div class='row'>
+        <div class='col-md-6 col-md-offset-3' id='welcome'>
+        <h1>Welcome to EventSpot</h1>
+        <h4>EventSpot searches for upcoming music events within your area.  Please enter your zip code above to see the upcoming events.<h4>
+        </div>
+      </div>
+
+      <div class='row'>
         <div class='col-md-6' id="eventsDisplay">
         </div>
         <div class='col-md-6' id="googleMap">
@@ -53,6 +58,11 @@
     </div>
 
     <footer>
+      
+      <div class="eventful-badge eventful-medium">
+        <img src="http://api.eventful.com/images/powered/eventful_139x44.gif" alt="Local Events, Concerts, Tickets">
+        <p><a href="http://eventful.com/">Events</a> by Eventful</p>
+      </div>
       <div class="container">Copyright 2016 Puneet Oberoi, Padmaja Kondeti, Gurjit Kaur Singh, Kevin Shukla
       </div>
     </footer>
