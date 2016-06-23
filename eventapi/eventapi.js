@@ -25,7 +25,7 @@ $(document).ready(function(){
       var event = response.events.event;
       console.log(eventLength);
       for (i=0; i<eventLength; i++){
-        var infoDiv = $('<button>').attr('class','eventButtons btn-primary col-md-6');
+        var infoDiv = $('<button>').attr('class','eventButtons btn-primary');
         var eventTitle = event[i].title;
         console.log(eventTitle);
         var eventCity = event[i].city_name;
