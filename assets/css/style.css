@@ -17,6 +17,9 @@ body{
   background: none;
   border: none;
 }
+.navbar-header{
+  color: white;
+}
 .jumbotron{
   background: none;
 
