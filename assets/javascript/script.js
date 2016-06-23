@@ -32,16 +32,12 @@ $(document).ready(function(){
       getCurrentLocation();
     }
 
-    initialize();
+    
 
-  $('#submit').on('click', function(){
-    $('#eventsDisplay').empty();
-    $('#eventsHeading').empty();
-    var p= $('#zipCode').val();
-    console.log(p);
   
     
-    var queryURL = 'https://crossorigin.me/http://api.eventful.com/json/events/search?app_key=P69H26fPKMJfCRcm&q=music&l=' + p + '&within=10&units=miles&t=this+weekend';
+  function listEvents(zipcode){
+    var queryURL = 'https://crossorigin.me/http://api.eventful.com/json/events/search?app_key=P69H26fPKMJfCRcm&q=music&l=' + zipcode + '&within=10&units=miles&t=this+weekend';
 
     console.log(queryURL);
 
@@ -55,11 +51,14 @@ $(document).ready(function(){
     .done(function(response) {
       console.log('done');
       console.log(response);
+      
+
       var eventLength = response.events.event.length;
       var event = response.events.event;
       console.log(eventLength);
       var instruc = $('<div>');
-      instruc.append('<h4>Click on Events below to see location</h4>');
+      instruc.append('<h4>Below are events near: ', zipcode,'</h4>');
+      instruc.append('<h4>Click on Events to see exact location</h4>');
       $('#eventsHeading').append(instruc);
       for (i=0; i<eventLength; i++){
         var infoDiv = $('<div>').attr('class','eventButtons col-md-3');
@@ -71,6 +70,8 @@ $(document).ready(function(){
         console.log(eventCity);
         var eventRegion = event[i].region_abbr;
         console.log(eventRegion);
+        var eventInfo = event[i].start_time;
+        console.log(eventInfo);
         var eventVenue = event[i].venue_name;
         console.log(eventVenue);
         var venueAddress = event[i].venue_address;
@@ -81,8 +82,9 @@ $(document).ready(function(){
         url.attr('target', "_blank");
         url.append('Event Link');
         infoDiv.append(heading, '<br/>');
-        infoDiv.append('Location: ', eventCity,', ', eventRegion, '<br/>');
         infoDiv.append('Event: ', eventTitle, '<br/>');
+        infoDiv.append('Location: ', eventCity,', ', eventRegion, '<br/>');
+        infoDiv.append('Date and Time: ', moment(eventInfo).format('MMMM Do YYYY, h:mm:ss a'), '<br/>');
         infoDiv.append('Venue: ', eventVenue, '<br/>');
         infoDiv.append('Venue Address: ', venueAddress, '<br/>');
         infoDiv.append(url);
@@ -96,6 +98,18 @@ $(document).ready(function(){
     }).error(function(data) {
       console.log('in error', data);
     });
+  };
+
+  initialize();
+  listEvents('08859');
+  
+  $('#submit').on('click', function(){
+    $('#eventsDisplay').empty();
+    $('#eventsHeading').empty();
+    var p= $('#zipCode').val();
+    $('#zipCode').val('');
+
+    listEvents(p);
 
     return false;
   });
