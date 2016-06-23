@@ -1,4 +1,38 @@
 $(document).ready(function(){
+    var map;
+    var markers = [];
+    var parkingMarkers = [];
+
+    var parkingImage = {
+        url: './assets/images/parking.png',
+        size: new google.maps.Size(32, 32),
+        origin: new google.maps.Point(0, 0),
+        anchor: new google.maps.Point(0, 32)
+      };
+
+    function getCurrentLocation(){
+        navigator.geolocation.getCurrentPosition(function(position){
+            initialLocation = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
+            map.setCenter(initialLocation);
+            var marker = new google.maps.Marker({
+                position: initialLocation,
+                map: map,
+                title: 'Current Location'
+            });
+        });
+    };
+
+    function initialize() {
+      var mapProp = {
+        center: new google.maps.LatLng(40.69847032728747, -73.9514422416687),
+        zoom:10,
+        mapTypeId:google.maps.MapTypeId.ROADMAP
+      };
+      map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+      getCurrentLocation();
+    }
+
+    initialize();
 
   $('#submit').on('click', function(){
     $('#eventsDisplay').empty();
@@ -268,8 +302,6 @@ $(document).ready(function(){
 //     //     map.setCenter(initialLocation);
 //     //   }
 //     // }
-//     //  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDOQMDnJhK0du419usTwHx0OvngOQ9qPzA&callback=initMap"
-//     // async defer></script> 
 
 
 
