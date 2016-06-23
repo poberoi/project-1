@@ -1,6 +1,7 @@
 $(document).ready(function(){
 
   $('#submit').on('click', function(){
+    $('#eventsDisplay').empty();
     console.log("it clicked");
     $('#eventsDisplay').empty();
     var p= $('#zipCode').val();
@@ -25,7 +26,7 @@ $(document).ready(function(){
       var event = response.events.event;
       console.log(eventLength);
       for (i=0; i<eventLength; i++){
-        var infoDiv = $('<button>').attr('class','eventButtons btn-primary');
+        var infoDiv = $('<button>').attr('class','eventButtons btn-primary col-md-3');
         var eventTitle = event[i].title;
         console.log(eventTitle);
         var eventCity = event[i].city_name;
