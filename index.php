@@ -1,1 +1,1 @@
-<?php include_once("eventapi.html"); ?>
+<?php include_once("index.html"); ?>
