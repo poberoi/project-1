@@ -1,61 +1,68 @@
-*{
-  box-sizing: border-box;
-}
+
 body{
   padding: 0;
   background-image: url("../images/jumbotron background.jpg");
-  /*background-repeat: no-repeat;*/
   background-size: 100%;
-
   color: white;
 }
 
-/*.container{
-  height: 100%;
-}*/
 .navbar{
   background: none;
   border: none;
 }
-.jumbotron{
-  background: none;
 
-}
-.brand{
-  height: 100px;
-  width: 400px;
-}
 #googleMap{
-  /*margin: 0 auto;*/
-  border-width:5px; 
-  border-style:ridge;
-  height: 400px;
-  width: 400px;
-  overflow: auto;
-
-}
-.panel{
-  border-width:5px; 
-  border-style:ridge;
+  height: 500px;
+  width: 568px;
+  margin-top: 13px;
 }
 
-.event-details {
-  border-bottom: 1px solid #eee;
-  padding: 3px;
+#msg {
+    margin-top: 68px;
+    color: #fff;
+    font-style: italic;
 }
 
-.btn-primary {
+.btn-info{
   margin: 5px;
 }
+
 .eventButtons{
+  margin: 5px;
+  padding: 5px;
   text-align: center;
   font-size: 12px;
   color: white;
-  height: 125px;
-  width: 250px;
+  height: 160px;
+  width: 265px;
+  background-color: white;
+  color: black;
 }
 
-#eventDescription {
-  color: red;
+.eventButtons:hover{
+  background-color: lightblue;
 }
+
+#welcome, #eventsHeading{
+  text-align: center;
+}
+
+#googleLogo{
+  width: 150px;
+}
+
+footer{
+  font-family: "Times New Roman", times, serif;
+  padding: 30px 0;
+  font-size: 12px;
+  text-align: center;
+}
+
+a:hover{
+  color: red;
+  text-decoration: none;
+}
+
+
+
 
