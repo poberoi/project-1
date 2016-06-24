@@ -17,7 +17,7 @@ body{
   margin-top: 13px;
 }
 
-div#msg {
+#msg {
     margin-top: 68px;
     color: #fff;
     font-style: italic;
