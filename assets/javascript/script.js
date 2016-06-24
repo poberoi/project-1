@@ -1,6 +1,13 @@
 $(document).ready(function(){
   var zipcode;
   var map;
+  var parkingMarkers = [];
+  var parkingImage = {
+    url: './assets/images/parking.png',
+    size: new google.maps.Size(32, 32),
+    origin: new google.maps.Point(0, 0),
+    anchor: new google.maps.Point(0, 32)
+  };
 
   // Function to create and update map
   function initialize(lat,lng) {
@@ -107,11 +114,28 @@ $(document).ready(function(){
     $('#eventsDisplay').empty();
     $('#eventsHeading').empty();
     var p= $('#zipCode').val();
-    $('#zipCode').val('');
     listEvents(p);
-
+    $("#msg").html('&nbsp;');
     return false;
   });
+
+  function paintParkingSpots(parkingData, eventPos){
+      if(parkingData.parking_listings && parkingData.parking_listings.length > 0) {
+          parkingData.parking_listings.forEach(function(p){
+              var marker = new google.maps.Marker({
+                  map: map,
+                  icon: parkingImage,
+                  position: {lat: p.lat, lng: p.lng},
+                  title: p.locaton_name
+                });
+              parkingMarkers.push(marker);
+          });
+          map.setZoom(14);
+          $("#msg").html('&nbsp;');
+      } else {
+          $("#msg").html('<h4>No parking around this area!</h4>');
+      }
+  }
 
   $(document).on('click', '.eventButtons', function(){
     console.log(this);
@@ -120,6 +144,18 @@ $(document).ready(function(){
     var lat = $(this).data('lat');
     var lng = $(this).data('lng');
     initialize(lat,lng);
+    var params = {
+        'latitude': lat, 
+        'longitude': lng
+    };
+    $("#msg").html('&nbsp;');
+    var key = '8957d645f4fbb29b6265b2d55de30c5a';
+    var url = 'https://crossorigin.me/http://api.parkwhiz.com/search?key=' + key + '&lat=' + lat + '&lng=' + lng;
+    $.ajax({
+        url: url, method: 'GET'
+    }).done(function(result){
+        paintParkingSpots(result, {lat: lat, lng: lng});
+    });
   });
 
 });
