@@ -1,7 +1,8 @@
 $(document).ready(function(){
-    
-  
+  var zipcode;
   var map;
+
+  // Function to create and update map
   function initialize(lat,lng) {
     var mapProp = {
       center: new google.maps.LatLng(lat, lng),
@@ -9,14 +10,17 @@ $(document).ready(function(){
       mapTypeId:google.maps.MapTypeId.ROADMAP
     };
     map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+    var marker = new google.maps.Marker({
+      position: mapProp.center,
+      map: map,
+      title: 'Current Location'
+    });
   }
 
-  
-    
-
-  
-    
+  // Function to create and update event list
   function listEvents(zipcode){
+    
+    // Create api url and set ajax and done request
     var queryURL = 'https://crossorigin.me/http://api.eventful.com/json/events/search?app_key=P69H26fPKMJfCRcm&q=music&l=' + zipcode + '&within=10&units=miles&t=this+weekend';
 
     console.log(queryURL);
@@ -32,10 +36,10 @@ $(document).ready(function(){
       console.log('done');
       console.log(response);
       
-
+      // Gather information from object and append information to appropriate divs
       var eventLength = response.events.event.length;
       var event = response.events.event;
-      console.log(eventLength);
+      // console.log(eventLength);
       var instruc = $('<div>');
       instruc.append('<h4>Below are events near: ', zipcode,'</h4>');
       instruc.append('<h4>Click on Events to see exact location</h4>');
@@ -45,19 +49,19 @@ $(document).ready(function(){
 
         var heading = "Event " + (i+1);
         var eventTitle = event[i].title;
-        console.log(eventTitle);
+        // console.log(eventTitle);
         var eventCity = event[i].city_name;
-        console.log(eventCity);
+        // console.log(eventCity);
         var eventRegion = event[i].region_abbr;
-        console.log(eventRegion);
+        // console.log(eventRegion);
         var eventInfo = event[i].start_time;
-        console.log(eventInfo);
+        // console.log(eventInfo);
         var eventVenue = event[i].venue_name;
-        console.log(eventVenue);
+        // console.log(eventVenue);
         var venueAddress = event[i].venue_address;
-        console.log(venueAddress);
+        // console.log(venueAddress);
         var eventUrl = event[i].url
-        console.log(eventUrl);
+        // console.log(eventUrl);
         var url = $('<a>').attr('href',eventUrl);
         url.attr('target', "_blank");
         url.append('Event Link');
@@ -71,16 +75,31 @@ $(document).ready(function(){
         infoDiv.attr('data-desc', event[i].description);
         infoDiv.attr('data-lat', event[i].latitude);
         infoDiv.attr('data-lng', event[i].longitude);
-        console.log(infoDiv.data('lat'));
-        console.log(infoDiv.data('lng'));
+        // console.log(infoDiv.data('lat'));
+        // console.log(infoDiv.data('lng'));
         $('#eventsDisplay').append(infoDiv);
       }
-    }).error(function(data) {
+    })
+    // If no object returned console error
+    .error(function(data) {
       console.log('in error', data);
     });
   };
 
-  
+  // function getCurrentLocation(){
+  //   navigator.geolocation.getCurrentPosition(function(position){
+  //     console.log(position);
+  //     initialLocation = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
+  //     map.setCenter(initialLocation);
+  //     var marker = new google.maps.Marker({
+  //         position: initialLocation,
+  //         map: map,
+  //         title: 'Current Location'
+  //     });
+  //   });
+  // };
+  // getCurrentLocation();
+  //create initial list with default zipcode and place on map
   listEvents('08859');
   initialize(40.4576,-74.3060);
   
@@ -89,7 +108,6 @@ $(document).ready(function(){
     $('#eventsHeading').empty();
     var p= $('#zipCode').val();
     $('#zipCode').val('');
-
     listEvents(p);
 
     return false;
@@ -256,23 +274,7 @@ $(document).ready(function(){
 //         });
 //     });
 
-//     $("#btnSearch").on("click", function(e){
-//         e.preventDefault();
-//         var loc = $("#location").val().trim();
-//         var keywords = $("#eventName").val().trim();
-
-//         var key = 'cFDXkxdj6WG78bgK';
-
-//         var url = 'https://crossorigin.me/http://api.eventful.com/rest/events/search?app_key=' + key + '&keywords=' + keywords + '&location=' + loc + '&date=Future';
-
-//         //$.get(url, {}, function(events){
-//          $.ajax({url:url,method:'GET'}).done (function(result){
-//             console.log(result);
-//             var events = $(result).find("events event");
-//             paintEvents(events);
-//          });
-//     });
-
+//     
     
 
 //     // var initialLocation;

@@ -1,50 +1,26 @@
-*{
-  box-sizing: border-box;
-}
+
 body{
   padding: 0;
   background-image: url("../images/jumbotron background.jpg");
-  /*background-repeat: no-repeat;*/
   background-size: 100%;
-
   color: white;
 }
 
-/*.container{
-  height: 100%;
-}*/
 .navbar{
   background: none;
   border: none;
 }
-.jumbotron{
-  background: none;
 
-}
-.brand{
-  height: 100px;
-  width: 400px;
-}
 #googleMap{
   height: 500px;
   width: 568px;
   margin-top: 100px;
 }
 
-.panel{
-  border-width:5px; 
-  border-style:ridge;
-}
-
-.event-details {
-  border-bottom: 1px solid #eee;
-  padding: 3px;
-}
-
-
-.btn-info {
+.btn-info{
   margin: 5px;
 }
+
 .eventButtons{
   margin: 5px;
   padding: 5px;
@@ -60,6 +36,7 @@ body{
 .eventButtons:hover{
   background-color: lightblue;
 }
+
 #welcome, #eventsHeading{
   text-align: center;
 }
