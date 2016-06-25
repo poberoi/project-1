@@ -9,14 +9,40 @@ $(document).ready(function(){
     anchor: new google.maps.Point(0, 32)
   };
 
-  // Function to create and update map
-  function initialize(lat,lng) {
+  
+  // Function gets current location of user
+  function getCurrentLocation(){
+    navigator.geolocation.getCurrentPosition(function(position){
+      initialLocation = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
+      map.setCenter(initialLocation);
+      var marker = new google.maps.Marker({
+        position: initialLocation,
+        map: map,
+        title: 'Current Location'
+      });
+    });
+  };
+
+  // Function to set up map on load
+  function initialize() {
+        var mapProp = {
+          center: new google.maps.LatLng(40.69847032728747, -73.9514422416687),
+          zoom:10,
+          mapTypeId:google.maps.MapTypeId.ROADMAP
+        };
+        map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+        getCurrentLocation();
+      }
+
+  // Function to update map
+  function updateMap(lat,lng) {
     var mapProp = {
       center: new google.maps.LatLng(lat, lng),
       zoom:12,
       mapTypeId:google.maps.MapTypeId.ROADMAP
     };
     map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+
     var marker = new google.maps.Marker({
       position: mapProp.center,
       map: map,
@@ -113,8 +139,9 @@ $(document).ready(function(){
   }
 
   //inital event list and map 
-  listEvents('08859');
-  initialize(40.4576,-74.3060);
+  // listEvents('08859');
+  // updateMap(40.4576,-74.3060);
+
   
   //events after clicking submit button
   $('#submit').on('click', function(){
@@ -131,7 +158,7 @@ $(document).ready(function(){
     console.log(this);
     var lat = $(this).data('lat');
     var lng = $(this).data('lng');
-    initialize(lat,lng);
+    updateMap(lat,lng);
     $("#msg").html('&nbsp;');
     var key = '8957d645f4fbb29b6265b2d55de30c5a';
     var url = 'https://crossorigin.me/http://api.parkwhiz.com/search?key=' + key + '&lat=' + lat + '&lng=' + lng;
@@ -141,5 +168,7 @@ $(document).ready(function(){
         paintParkingSpots(result, {lat: lat, lng: lng});
     });
   });
+
+  initialize();
 });
 
