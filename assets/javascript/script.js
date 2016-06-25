@@ -10,6 +10,9 @@ $(document).ready(function(){
   };
 
   
+  // 
+
+
   // Function gets current location of user
   function getCurrentLocation(){
     navigator.geolocation.getCurrentPosition(function(position){
@@ -20,7 +23,9 @@ $(document).ready(function(){
         map: map,
         title: 'Current Location'
       });
-      console.log(initialLocation);
+      
+      var queryURL = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + position.coords.latitude + ',' + position.coords.longitude + '&key=AIzaSyDOQMDnJhK0du419usTwHx0OvngOQ9qPzA'
+
       listEvents(marker.position);
     });
   };
