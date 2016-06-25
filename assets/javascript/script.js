@@ -20,6 +20,7 @@ $(document).ready(function(){
         map: map,
         title: 'Current Location'
       });
+      listEvents(initialLocation);
     });
   };
 
