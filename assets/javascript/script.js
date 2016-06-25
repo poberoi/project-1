@@ -34,7 +34,7 @@ $(document).ready(function(){
       .done(function(response) {
         console.log('done');
         console.log(response);
-        var zip = response.results[0].address_components[0].longname;
+        var zip = response.results.address_components[0].long_name;
         console.log(zip);
         // listEvents(marker.position);
       });
@@ -157,7 +157,7 @@ $(document).ready(function(){
   }
 
   //inital event list and map 
-  // listEvents('08859');
+  listEvents('08859');
   // updateMap(40.4576,-74.3060);
 
   
