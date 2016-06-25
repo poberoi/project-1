@@ -162,6 +162,7 @@ $(document).ready(function(){
     $('#eventsHeading').empty();
     var p= $('#zipCode').val();
     listEvents(p);
+    initialize();
     $("#msg").html('&nbsp;');
     return false;
   });
