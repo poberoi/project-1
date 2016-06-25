@@ -20,7 +20,7 @@ $(document).ready(function(){
         map: map,
         title: 'Current Location'
       });
-      console.log(initailLocation);
+      console.log(initialLocation);
       listEvents(marker.position);
     });
   };
