@@ -24,7 +24,7 @@ $(document).ready(function(){
         title: 'Current Location'
       });
       
-      var queryURL = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + position.coords.latitude + ',' + position.coords.longitude + '&key=AIzaSyDOQMDnJhK0du419usTwHx0OvngOQ9qPzA'
+      var queryURL = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + position.coords.latitude + ',' + position.coords.longitude + '&result_type=postal_code&key=AIzaSyDOQMDnJhK0du419usTwHx0OvngOQ9qPzA'
 
       $.ajax({ 
         url: queryURL, 
@@ -34,7 +34,7 @@ $(document).ready(function(){
       .done(function(response) {
         console.log('done');
         console.log(response);
-        var zip = response.results[0].address_components[7].longname
+        var zip = response.results[0].address_components[7].longname;
         console.log(zip);
         // listEvents(marker.position);
       });
