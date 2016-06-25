@@ -157,7 +157,7 @@ $(document).ready(function(){
   }
 
   //inital event list and map 
-  listEvents('08859');
+  // listEvents('08859');
   // updateMap(40.4576,-74.3060);
 
   
