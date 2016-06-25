@@ -34,7 +34,7 @@ $(document).ready(function(){
       .done(function(response) {
         console.log('done');
         console.log(response);
-        var zip = response.results[0].address_components[7].longname;
+        var zip = response.results[0].address_components[0].longname;
         console.log(zip);
         // listEvents(marker.position);
       });
