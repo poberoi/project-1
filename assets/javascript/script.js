@@ -156,11 +156,6 @@ $(document).ready(function(){
     }
   }
 
-  //inital event list and map 
-  // listEvents('08859');
-  // updateMap(40.4576,-74.3060);
-
-  
   //events after clicking submit button
   $('#submit').on('click', function(){
     $('#eventsDisplay').empty();

@@ -47,8 +47,17 @@ body{
   text-align: center;
 }
 
+#eventfulLogo{
+  margin-top: 5px;
+}
 #googleLogo{
   width: 150px;
+  margin: 5px;
+}
+
+#parkwhizLogo{
+  width: 150px;
+  margin: 5px;
 }
 
 footer{
