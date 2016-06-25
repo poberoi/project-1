@@ -152,7 +152,7 @@ $(document).ready(function(){
       map.setZoom(14);
       $("#msg").html('&nbsp;');
     } else {
-      $("#msg").html('<h4>No parking around this area!</h4>');
+      $("#msg").html("<h4>No parking decks registered with ParkWhiz in this area!</h4>");
     }
   }
 
