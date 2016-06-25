@@ -162,7 +162,7 @@ $(document).ready(function(){
     $('#eventsHeading').empty();
     var p= $('#zipCode').val();
     listEvents(p);
-    initialize();
+    updateMap(40.69847032728747, -73.9514422416687);
     $("#msg").html('&nbsp;');
     return false;
   });
