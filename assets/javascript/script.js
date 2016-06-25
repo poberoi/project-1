@@ -26,7 +26,16 @@ $(document).ready(function(){
       
       var queryURL = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + position.coords.latitude + ',' + position.coords.longitude + '&key=AIzaSyDOQMDnJhK0du419usTwHx0OvngOQ9qPzA'
 
-      listEvents(marker.position);
+      $.ajax({ 
+        url: queryURL, 
+        method: 'GET',
+        dataType: 'json'
+      })
+      .done(function(response) {
+        console.log('done');
+        console.log(response);
+        // listEvents(marker.position);
+      });
     });
   };
 
