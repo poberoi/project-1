@@ -36,7 +36,7 @@ $(document).ready(function(){
         console.log(response);
         var zip = response.results[0].address_components[0].long_name;
         console.log(zip);
-        // listEvents(marker.position);
+        listEvents(zip);
       });
     });
   };
