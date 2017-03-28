@@ -72,7 +72,7 @@ $(document).ready(function(){
   function listEvents(zipcode){
     
     // Create event api url and set ajax and done request
-    var queryURL = 'https://crossorigin.me/http://api.eventful.com/json/events/search?app_key=mf639628J66NJ6pMcm&q=music&l=' + zipcode + '&within=10&units=miles&t=this+weekend';
+    var queryURL = 'https://crossorigin.me/http://api.eventful.com/json/events/search?app_key=mf639628J66NJ6pM&q=music&l=' + zipcode + '&within=10&units=miles&t=this+weekend';
 
     console.log(queryURL);
 
